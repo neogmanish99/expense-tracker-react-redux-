@@ -1,14 +1,15 @@
-    import React from 'react'
+    import React from 'react';
+    import {Transaction} from './Transaction';
+    import {useSelector,useDispatch} from 'react-redux';
 
     export const TransactionList = () => {
+        const transactions = useSelector(state=>state.transactions);
         return (
             <div>
                 <h3>History</h3>
         <ul  className="list">
-            <li className="minus">
-            Cash <span>-$400</span><button class="delete-btn">x</button>
-            </li> 
-        </ul>
+        {transactions.map(transaction=>(<Transaction key={transaction.id} transaction={transaction}/>))}
+            </ul>
             </div>
         )
     }
