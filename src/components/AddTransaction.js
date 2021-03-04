@@ -1,12 +1,31 @@
     import React,{useState} from 'react'
+    import {useDispatch} from 'react-redux';
+    import {addTransaction} from '../actions/actions';
 
     export const AddTransaction = () => {
         const [text,setText]=useState('');
         const [amount,setAmount]=useState(0);
+
+        const dispatch = useDispatch();
+
+        const onSubmit= e =>{
+            e.preventDefault();
+
+            const newTransaction = 
+                {
+                    id: Math.floor(Math.random() * 100000000),
+                    text,
+                    amount: +amount
+    
+                }
+            
+            dispatch(addTransaction(newTransaction));
+
+        }
         return ( 
             <>
             <h3>Add new transaction</h3>
-        <form >
+        <form onSubmit={onSubmit} >
             <div className="form-control">
             <label htmlFor="text">Text</label>
             <input type="text" value={text} onChange={(e)=>setText(e.target.value)}  placeholder="Enter text..." />

@@ -1,9 +1,9 @@
     import React from 'react';
     import {Transaction} from './Transaction';
-    import {useSelector,useDispatch} from 'react-redux';
+    import {useSelector} from 'react-redux';
 
     export const TransactionList = () => {
-        const transactions = useSelector(state=>state.transactions);
+        const {transactions} = useSelector(state=>state.expenses);
         return (
             <div>
                 <h3>History</h3>

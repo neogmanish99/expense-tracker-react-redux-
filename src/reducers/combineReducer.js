@@ -2,6 +2,6 @@ import {combineReducers} from 'redux';
 import transactionReducer from './expenseReducer';
 
 const combine = combineReducers({
-    transactions: transactionReducer,
+    expenses: transactionReducer,
 })
  export default combine;
