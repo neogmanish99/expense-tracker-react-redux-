@@ -1,6 +1,6 @@
 const initState ={
     transactions:[
-        {id:1, text:'flower',amount:-80 }
+        // {id:1, text:'flower',amount:-80 }
     ]
 }
 
@@ -14,7 +14,7 @@ switch(action.type){
                 action.payload)
         }
         
-    case "'ADD_TRANSACTIONS":
+    case "ADD_TRANSACTIONS":
         return {
             ...state,
             transactions: [action.payload, ...state.transactions]
